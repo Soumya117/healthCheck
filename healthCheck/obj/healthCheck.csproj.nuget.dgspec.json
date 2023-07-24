@@ -1,0 +1,78 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/soumya/dotnet/healthCheck/healthCheck/healthCheck.csproj": {}
+  },
+  "projects": {
+    "/home/soumya/dotnet/healthCheck/healthCheck/healthCheck.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/soumya/dotnet/healthCheck/healthCheck/healthCheck.csproj",
+        "projectName": "healthCheck",
+        "projectPath": "/home/soumya/dotnet/healthCheck/healthCheck/healthCheck.csproj",
+        "packagesPath": "/home/soumya/.nuget/packages/",
+        "outputPath": "/home/soumya/dotnet/healthCheck/healthCheck/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/soumya/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNet.WebApi.Client": {
+              "target": "Package",
+              "version": "[5.2.9, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/home/soumya/.dotnet/sdk/6.0.412/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
