@@ -6,7 +6,8 @@ API determines the individual scores and calculates the final score which is the
 
 This API has the swagger integration to test the logic.
 
-![image](https://github.com/Soumya117/healthCheck/assets/4094696/04e645d2-b987-4077-a3bd-ec5723633bb9)
+![image](https://github.com/Soumya117/healthCheck/assets/4094696/dfc45a87-8f33-4807-b248-c5e206b61299)
+
 
 
 
