@@ -1,4 +1,5 @@
 using System.Linq;
+using healthCheck.interfaces;
 
 public class Measurement
 {
@@ -19,37 +20,7 @@ public class ScoreMapping{
     }
 }
 
-public interface MeasurementScoreMapping
-{
-    public List<ScoreMapping> getScoreMapping() => throw new NotImplementedException() ;
-    int getScore(int value) => throw new NotImplementedException() ;
-
-    private static int getMinimumValidValue(List<ScoreMapping> scoreMappingList)
-    {
-        return scoreMappingList.OrderByDescending(i => i.MinValue).ToList()[0].MinValue;
-    }
-    private static int getMaximumValidValue(List<ScoreMapping> scoreMappingList)
-    {
-        return scoreMappingList.OrderByDescending(i => i.MaxValue).ToList()[0].MaxValue;
-    }
-
-    public static int calculateScoreFromMapping(int value, List<ScoreMapping> scoreMappingList, string measurementType)
-    {
-        foreach(ScoreMapping scoreMap in scoreMappingList)
-        {
-           if (value > scoreMap.MinValue  && value <= scoreMap.MaxValue)
-            {
-              return scoreMap.Score;
-            }
-        }
-        string errorMessage = string.Format("Value {0} for {1} is invalid. Please enter a value between {2} and {3}.",
-             value, measurementType, getMinimumValidValue(scoreMappingList), getMaximumValidValue(scoreMappingList)
-        );
-        throw new InvalidValueException(errorMessage);
-    }
-}
-
-public class Temperature : MeasurementScoreMapping
+public class Temperature : IMeasurement
 {
     public List<ScoreMapping> getScoreMapping()
     {
@@ -64,11 +35,11 @@ public class Temperature : MeasurementScoreMapping
 
     public int getScore(int value)
     {
-        return MeasurementScoreMapping.calculateScoreFromMapping(value, getScoreMapping(), "TEMP");
+        return IMeasurement.calculateScoreFromMapping(value, getScoreMapping(), "TEMP");
     }
 }
 
-public class HeartRate : MeasurementScoreMapping
+public class HeartRate : IMeasurement
 {
       public List<ScoreMapping> getScoreMapping()
     {
@@ -85,11 +56,11 @@ public class HeartRate : MeasurementScoreMapping
 
     public int getScore(int value)
     {
-        return MeasurementScoreMapping.calculateScoreFromMapping(value, getScoreMapping(), "HR");
+        return IMeasurement.calculateScoreFromMapping(value, getScoreMapping(), "HR");
     }
 }
 
-public class RespitoryRate : MeasurementScoreMapping
+public class RespitoryRate : IMeasurement
 {
       public List<ScoreMapping> getScoreMapping()
     {
@@ -104,7 +75,7 @@ public class RespitoryRate : MeasurementScoreMapping
 
     public int getScore(int value)
     {
-        return MeasurementScoreMapping.calculateScoreFromMapping(value, getScoreMapping(), "RR");
+        return IMeasurement.calculateScoreFromMapping(value, getScoreMapping(), "RR");
     }
 
 } 
