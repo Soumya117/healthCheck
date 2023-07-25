@@ -1,4 +1,3 @@
-[Serializable]
 class InvalidValueException : Exception
 {
     public InvalidValueException() { }
