@@ -1,4 +1,5 @@
 using System.Runtime.Serialization;
+
 public static class Utilities {
     public static string ToEnumString<T>(T instance)
     {
