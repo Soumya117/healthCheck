@@ -1,11 +1,13 @@
 using System.Net;
+using healthCheck.interfaces;
 
 public class Service{
+    // Responsible for all the validation and creating the response accordingly
     public static ScoreResponse createScoreResponse(HealthCheck healthCheck)
     {
         List<Measurement> measurements = healthCheck.measurements;
         int totalScore = 0;
-        string assemblyName = typeof(MeasurementScoreMapping).Assembly.GetName().Name;
+        string assemblyName = typeof(IMeasurement).Assembly.GetName().Name;
         List<string>processedMeasurementType = new List<string>();
 
         if (measurements.Count == 0)
@@ -15,9 +17,11 @@ public class Service{
 
         foreach (Measurement measurement in measurements)
         {
+            // Iterates through all the different types of measurements and calls the individual 
+            // measurement class to calculate the score.
             string measurementObjectName = Utilities.ToEnumString(measurement.type) + ", " + assemblyName;
             var objectType = Type.GetType(measurementObjectName);
-            dynamic measurementTypeObject = Activator.CreateInstance(objectType) as MeasurementScoreMapping;
+            dynamic measurementTypeObject = Activator.CreateInstance(objectType) as IMeasurement;
             
             try {
                 if (processedMeasurementType.Contains(measurementObjectName))
