@@ -1,5 +1,5 @@
-# healthCheck
-Testing C# webapi
+# Health check
+
 
 This API takes a set of measurements like heart rate, temperature, and respiratory rate. Each measurement has a set of ranges defined in the code that defines the individual score.
 API determines the individual scores and calculates the final score which is the sum of all the scores.
