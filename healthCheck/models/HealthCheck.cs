@@ -6,7 +6,7 @@ public class HealthCheck
 public class ScoreData 
 {
     public int Score {get; set;}
-    public string ErrorMessage{get; set;}
+    public string ErrorMessage {get; set;}
     public ScoreData(int score, string errorMessage)
     {
         Score = score;
