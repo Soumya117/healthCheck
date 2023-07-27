@@ -15,13 +15,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers().AddJsonOptions(x =>
-            {
-                // serialize enums as strings in api responses (e.g. Role)
-                x.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
-
-                // ignore omitted parameters on models to enable optional params (e.g. User update)
-                x.JsonSerializerOptions.IgnoreNullValues = true;
-            });
+  {
+      // serialize enums as strings in api responses
+      x.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+  });
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
